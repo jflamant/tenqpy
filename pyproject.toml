@@ -1,0 +1,61 @@
+[tool.poetry]
+name = "tenqpy"
+version = "0.1.0"
+description = ""
+authors = ["Julien Flamant <julien.flamant@cnrs.fr>"]
+readme = "README.md"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = ">=3.11, <3.12"
+numpy = "^1.24.3"
+numpy-quaternion = "^2022.4.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+# Organize dependencies by group
+# poetry add PACKAGENAME --group GROUPNAME
+
+[tool.poetry.group.test]
+optional = true # makes the `dev` dependency group optional
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.2.0"
+pytest-cov = "^4.0.0" # generate coverage report see --cov --cov-report flags
+
+[tool.poetry.group.dev]
+optional = true # makes the `dev` dependency group optional
+# poetry install --with dev
+# poetry install --only dev
+
+[tool.poetry.group.dev.dependencies]
+# poetry add PACKAGENAME --group dev
+# Testing (same as group.test)
+pytest = "^7.2.0"
+pytest-cov = "^4.0.0" # generate coverage report see --cov --cov-report flags
+
+[tool.poetry.group.docs]
+optional = true # makes the `docs` dependency group optional
+# poetry install --with docs
+# poetry install --only docs
+
+[tool.poetry.group.docs.dependencies]
+# poetry add PACKAGENAME --group dev
+
+# Documentation is generated with Sphinx
+# https://www.sphinx-doc.org/en/master/index.html
+# - locally `poetry run sphinx-build -b docs docs/_build/html`
+# - online either with
+#     - ReadTheDocs see .readthedocs.yaml file, or
+#     - GitHub pages see .github/workflows/docs.yml
+# Configuration file is docs/conf.py
+
+Sphinx = "^5.3.0"
+# Extensions https://www.sphinx-doc.org/en/master/usage/extensions/index.html
+sphinxcontrib-bibtex = "^2.5.0" # Manage bibliography .bib files
+rstcheck = "^6.1.1"
+esbonio = "^0.15.0"             # Language server for .rst files
