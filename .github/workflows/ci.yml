@@ -10,7 +10,7 @@ on:
     branches:
       - main
     paths:
-      - "src/**"
+      - "tenqpy/**"
       - "tests/**"
       - "pyproject.toml"
       - "poetry.toml"
